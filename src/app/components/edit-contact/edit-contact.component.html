@@ -1,0 +1,49 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <p class="h3 fw-bold text-primary"><i class="fa fa-pen"></i> Edit Contact
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Form -->
+<div class="container">
+    <div clss="row">
+        <div class="col-sm-4">
+            <form (submit)="updateContact()">
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.name" [value]="contact.name" name="name" type="text" class="form-control" placeholder="Enter name" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.mobile" [value]="contact.mobile" name="mobile" type="number" class="form-control" placeholder="Enter mobile number" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.photo" [value]="contact.photo" name="photo" type="text" class="form-control" placeholder="Enter image url" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.company" [value]="contact.company" name="company" type="text" class="form-control" placeholder="Enter company name" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.title" [value]="contact.title" name="title" type="text" class="form-control" placeholder="Enter title" required>
+                </div>
+                <div class="mb-2">
+                    <input [(ngModel)]="contact.email" [value]="contact.email" name="email" type="email" class="form-control" placeholder="Enter email" required>
+                </div>
+                <div class="mb-2">
+                    <select class="form-control" *ngIf="groups.length>0" [(ngModel)]="contact.groupId" name="groupId" [value]="contact.groupId" required>
+                        <option value="">Select a group</option>
+                        <option [value]="group.id" *ngFor="let group of groups" >{{group.name}}</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <input type="submit" class="btn btn-primary" value="Update">
+                    <a routerLink="/" class="btn btn-warning ms-2">Close</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <img class="contact-img" [src]="contact.photo">
+        </div>
+    </div>
+</div>

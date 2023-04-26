@@ -1,0 +1,48 @@
+<div class="container mt-4">
+    <div class="row align-items-center">
+        <div class="col">
+            <p class="h3 fw-bold text-primary"><i class="fa fa-eye"></i> View Contact
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- condition based loading  -->
+<div *ngIf="loading">
+    <app-spinner> </app-spinner>
+  </div>
+  
+  <!-- error message -->
+  <div *ngIf="!loading && errorMessage">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <p class="h4 text-danger gw-bold">{{errorMessage}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- View Contact Details -->
+<div *ngIf="!loading && isEmpty()" class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img class="contact-img-details" [src]="contact.photo">
+        </div>
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-success"> Name: <span class="fw-bold">{{contact.name}}</span></li>
+                <li class="list-group-item list-group-item-success"> Email: <span class="fw-bold">{{contact.email}}</span></li>
+                <li class="list-group-item list-group-item-success"> Mobile: <span class="fw-bold">{{contact.mobile}}</span></li>
+                <li class="list-group-item list-group-item-success"> Company: <span class="fw-bold">{{contact.company}}</span></li>
+                <li class="list-group-item list-group-item-success"> Title: <span class="fw-bold">{{contact.title}}</span></li>
+                <li class="list-group-item list-group-item-success"> Group Name: <span class="fw-bold">{{group.name}}</span></li>           
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mt-2">
+            <a routerLink="/" class="btn btn-warning"><i class="fa fa-arrow-alt-circle-left"></i> Go Back</a>
+        </div>
+    </div>
+</div>
